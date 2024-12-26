@@ -2,23 +2,14 @@
 <script setup lang="ts">
  const {singleDay} = defineProps<
  {
-   singleDay: {
-     temp: string;
-     datetime: string;
-     conditions: string;
-     humidity: string;
-     windspeed: string;
-     tempmin: string;
-     tempmax: string;
-     description: string;
-   };
+   singleDay: any
  }
  >()
 </script>
 <template>
     <div>
         <p class="font-bold">
-          Temperature: <span class="font-normal">{{ singleDay.temp }} </span>
+          Temperature: <span class="font-normal">{{ singleDay.temp }} &deg;C</span>
         </p>
         <p class="font-bold">
           Date: <span class="font-normal">{{ singleDay.datetime }}</span>
