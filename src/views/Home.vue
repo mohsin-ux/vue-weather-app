@@ -22,25 +22,27 @@ async function getWeather(latitude: string, longitude: string) {
 
 <template>
   <main
-    class="bg-gradient-to-r from-cyan-500 to-blue-500 px-28 w-sreen h-screen"
+    class="bg-gradient-to-r from-cyan-500 to-blue-500 px-28 py-10 w-sreen h-screen"
   >
-    <div>
+  <div class="flex flex-col gap-3">
+      <div>
+        <h1 class="text-4xl font-bold text-white">Weather App</h1>
+      </div>
       <Input @getWeather="getWeather" />
       <div class=" w-full h-screen flex justify-center items-center" v-if="!forecast">
         <div
           class="w-16 h-16 border-4 border-gray-300 border-t-blue-500 rounded-full animate-spin"
         ></div>
       </div>
-      <div v-else>
-        <div class="border">
-          <p class="font-bold">Current Day</p>
+      <div v-else class="flex flex-col gap-3">
+        <div class="border bg-emerald-900 text-white p-3 rounded-lg">
           <CurrentDayData :single-day="currentDay" />
         </div>
 
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap gap-2">
           <div
             v-for="(singleDay, index) in forecast"
-            class="w-[300px] border p-3 rounded-2xl bg-blue-800 text-white"
+            class="w-[200px] border p-3 rounded-2xl bg-blue-800 text-white"
           >
             <SingleCard :singleDay="singleDay" />
           </div>

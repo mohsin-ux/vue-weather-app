@@ -7,7 +7,7 @@
  >()
 </script>
 <template>
-    <div>
+    <div class="">
         <p class="font-bold">
           Temperature: <span class="font-normal">{{ singleDay.temp }} &deg;C</span>
         </p>

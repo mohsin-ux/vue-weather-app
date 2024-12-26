@@ -5,7 +5,7 @@ const longitude = ref<string>("");
 const city = ref<string>("Washington");
 
 const emits = defineEmits<{
-  (e: 'getWeather', latitude: string, longitude: string): void,
+  (e: "getWeather", latitude: string, longitude: string): void;
 }>();
 
 async function getLocation() {
@@ -24,7 +24,7 @@ async function getLocation() {
       }
     })
     .catch((error) => console.error("Error:", error));
-  emits('getWeather', latitude.value, longitude.value);
+  emits("getWeather", latitude.value, longitude.value);
 }
 onMounted(() => {
   getLocation();
@@ -32,14 +32,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <form
-    @submit.prevent="getLocation"
-    class="border flex flex-col items-start"
-  >
-    <label for="temp">Enter location</label>
-    <input class="border" type="text" v-model="city" id="temp" />
-    <button class="border rounded">submit</button>
+  <form @submit.prevent="getLocation" class="flex flex-col items-start gap-2">
+    <label for="temp"
+      ><span>Enter location: </span>
+      <input class="border" type="text" v-model="city" id="temp" />
+    </label>
+
+    <button class="border rounded-lg bg-purple-800 text-white px-4 py-2">submit</button>
   </form>
-
-
 </template>

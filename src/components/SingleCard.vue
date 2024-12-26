@@ -8,10 +8,9 @@ const { singleDay } = defineProps<{
   <main>
     <div>
       <i class="fa fa-sun-o"></i>
-      <p>{{ singleDay.icon }}</p>
       <p>Date: {{ singleDay.datetime.slice(8, 10) }}</p>
-      <p>Max temperature: {{ singleDay.tempmax }}</p>
-      <p>Min temperature: {{ singleDay.tempmin }}</p>
+      <p>Max temp: {{ singleDay.tempmax }} &deg;C</p>
+      <p>Min temp: {{ singleDay.tempmin }} &deg;C</p>
     </div>
   </main>
 </template>
